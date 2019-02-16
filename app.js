@@ -18,13 +18,17 @@ var blogSchema=new mongoose.Schema({
 
 var Blog=mongoose.model("Blog",blogSchema);
 
-Blog.create({
+/*Blog.create({
 	title: "Test Blog",
 	image: "C:\\Users\\Kevin\\Pictures\\Saved Pictures\\IMG_20180804_133946_221",
 	body: "Hello this is a blog post"
-});
+});*/
 
 //RESTful routes
+
+app.get("/blogs", function(req,res){
+	res.render("index");
+});
 
 app.listen(3000,"127.0.0.1", function(){
 	console.log("Server is running");
