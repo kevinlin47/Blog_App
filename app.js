@@ -18,6 +18,12 @@ var blogSchema=new mongoose.Schema({
 
 var Blog=mongoose.model("Blog",blogSchema);
 
+Blog.create({
+	title: "Test Blog",
+	image: "C:\\Users\\Kevin\\Pictures\\Saved Pictures\\IMG_20180804_133946_221",
+	body: "Hello this is a blog post"
+});
+
 //RESTful routes
 
 app.listen(3000,"127.0.0.1", function(){
