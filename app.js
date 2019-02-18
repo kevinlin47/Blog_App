@@ -24,6 +24,7 @@ app.get("/", function(req,res){
 	res.redirect("/blogs");
 });
 
+//INDEX Route
 app.get("/blogs", function(req,res){
 	Blog.find({}, function(err,blogs){
 		if(err)
@@ -36,6 +37,13 @@ app.get("/blogs", function(req,res){
 		}
 	});
 });
+
+//NEW Route
+app.get("/blogs/new", function(req,res){
+	res.render("new");
+});
+
+//CREATE Route
 
 app.listen(3000,"127.0.0.1", function(){
 	console.log("Server is running");
