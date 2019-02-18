@@ -44,6 +44,19 @@ app.get("/blogs/new", function(req,res){
 });
 
 //CREATE Route
+app.post("/blogs", function(req,res){
+	//create blog
+	Blog.create(req.body.blog, function(err, newBlog){
+		if(err)
+		{
+			res.render("new");
+		}
+		else
+		{
+			res.redirect("/blogs")
+		}
+	});
+});
 
 app.listen(3000,"127.0.0.1", function(){
 	console.log("Server is running");
