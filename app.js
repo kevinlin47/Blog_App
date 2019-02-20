@@ -91,7 +91,16 @@ app.get("/blogs/:id/edit", function(req,res){
 
 //UPDATE Route
 app.put("/blogs/:id", function(req,res){
-
+	Blog.findByIdAndUpdate(req.params.id,req.body.blog, function(err,updatedBlog){
+		if(err)
+		{
+			res.redirect("/blogs");
+		}
+		else
+		{
+			res.redirect("/blogs/"+req.params.id);
+		}
+	});
 });
 
 app.listen(3000,"127.0.0.1", function(){
