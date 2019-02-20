@@ -3,6 +3,7 @@ var app=express();
 var bodyParser=require("body-parser");
 var mongoose=require("mongoose");
 var methodOverride=require("method-override");
+var expressSanitizer=require("express-sanitizer");
 
 //APP config
 mongoose.connect("mongodb://localhost:27017/restful_blog_app",{useNewUrlParser:true});
@@ -10,6 +11,7 @@ app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
+app.use(expressSanitizer());
 
 //Mongoose/Model Config
 var blogSchema=new mongoose.Schema({
