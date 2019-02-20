@@ -2,11 +2,14 @@ var express=require("express");
 var app=express();
 var bodyParser=require("body-parser");
 var mongoose=require("mongoose");
+var method=require("method-ovverride");
 
+//APP config
 mongoose.connect("mongodb://localhost:27017/restful_blog_app",{useNewUrlParser:true});
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(methodOverride("_method"));
 
 //Mongoose/Model Config
 var blogSchema=new mongoose.Schema({
@@ -88,7 +91,7 @@ app.get("/blogs/:id/edit", function(req,res){
 
 //UPDATE Route
 app.put("/blogs/:id", function(req,res){
-	
+
 });
 
 app.listen(3000,"127.0.0.1", function(){
