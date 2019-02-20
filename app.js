@@ -2,7 +2,7 @@ var express=require("express");
 var app=express();
 var bodyParser=require("body-parser");
 var mongoose=require("mongoose");
-var method=require("method-override");
+var methodOverride=require("method-override");
 
 //APP config
 mongoose.connect("mongodb://localhost:27017/restful_blog_app",{useNewUrlParser:true});
