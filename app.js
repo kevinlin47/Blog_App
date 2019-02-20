@@ -86,6 +86,11 @@ app.get("/blogs/:id/edit", function(req,res){
 	});
 });
 
+//UPDATE Route
+app.put("/blogs/:id", function(req,res){
+
+});
+
 app.listen(3000,"127.0.0.1", function(){
 	console.log("Server is running");
 });
