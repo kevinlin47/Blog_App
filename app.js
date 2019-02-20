@@ -72,6 +72,11 @@ app.get("/blogs/:id", function(req,res){
 	});
 });
 
+//EDIT Route
+app.get("/blogs/:id/edit", function(req,res){
+	res.render("edit");
+});
+
 app.listen(3000,"127.0.0.1", function(){
 	console.log("Server is running");
 });
