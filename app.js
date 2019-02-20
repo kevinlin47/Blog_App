@@ -74,7 +74,16 @@ app.get("/blogs/:id", function(req,res){
 
 //EDIT Route
 app.get("/blogs/:id/edit", function(req,res){
-	res.render("edit");
+	Blog.findById(req.params.id, function(err, foundBlog){
+		if(err)
+		{
+			res.redirect("/blogs");
+		}
+		else
+		{
+			res.render("edit",{blog:foundBlog});
+		}
+	});
 });
 
 app.listen(3000,"127.0.0.1", function(){
